@@ -1,0 +1,7 @@
+databaseChangeLog:
+    - include:
+        file: classpath:db/changelog/create-reward-tables.xml
+    - include:
+        file: classpath:db/changelog/insert_reward_categories.xml
+    - include:
+        file: classpath:db/changelog/disable-foreignkey-constraints.xml

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="01" author="muyut">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="reward_category_1"/>
+            </not>
+            <not>
+                <tableExists tableName="reward_category_2"/>
+            </not>
+            <not>
+                <tableExists tableName="reward_program"/>
+            </not>
+            <not>
+                <tableExists tableName="reward_program_reward_category_2"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="reward_category_1">
+            <column name="id" type="varchar(36)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+
+            <column name="category" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="description" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+
+        <createTable tableName="reward_category_2">
+            <column name="id" type="varchar(36)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+
+            <column name="category" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="description" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="reward_category_1_id" type="varchar(36)">
+                <constraints nullable="false"
+                             foreignKeyName="fk_reward_category_2_reward_category_1"
+                             referencedTableName="reward_category_1"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+
+
+        <createTable tableName="reward_program">
+            <column name="id" type="varchar(36)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+
+            <column name="customer_id" type="long">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="description" type="varchar(50)">
+            </column>
+
+            <column name="progress" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="status_code" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="reward_category_1_id" type="varchar(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="reward_program_category_2">
+            <column name="id" type="varchar(36)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+
+            <column name="reward_program_id" type="varchar(36)">
+                <constraints nullable="false"
+                             foreignKeyName="fk_reward_program_category_2_reward_program"
+                             referencedTableName="reward_program"
+                             referencedColumnNames="id"/>
+            </column>
+
+            <column name="reward_category_2_id" type="varchar(36)">
+                <constraints nullable="false"
+                             foreignKeyName="fk_reward_program_category_2_reward_category_2"
+                             referencedTableName="reward_category_2"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

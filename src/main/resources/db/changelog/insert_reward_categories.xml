@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="02" author="muyut">
+        <insert tableName="reward_category_1">
+            <column name="id" value="001"/>
+            <column name="category" value="Finance"/>
+            <column name="description" value="finance category"/>
+        </insert>
+        <insert tableName="reward_category_1">
+            <column name="id" value="002"/>
+            <column name="category" value="Wellness"/>
+            <column name="description" value="wellness category"/>
+        </insert>
+        <insert tableName="reward_category_1">
+            <column name="id" value="003"/>
+            <column name="category" value="Travel"/>
+            <column name="description" value="travel category"/>
+        </insert>
+        <insert tableName="reward_category_2">
+            <column name="id" value="002001"/>
+            <column name="category" value="Exercise"/>
+            <column name="description" value="Exercise"/>
+            <column name="reward_category_1_id" value="002"/>
+        </insert>
+        <insert tableName="reward_category_2">
+            <column name="id" value="002002"/>
+            <column name="category" value="Diet&amp;Lifestyle"/>
+            <column name="description" value="Diet&amp;Lifestyle"/>
+            <column name="reward_category_1_id" value="002"/>
+        </insert>
+        <insert tableName="reward_category_2">
+            <column name="id" value="002003"/>
+            <column name="category" value="Mental&amp;Habits"/>
+            <column name="description" value="Mental&amp;Habits"/>
+            <column name="reward_category_1_id" value="002"/>
+        </insert>
+        <insert tableName="reward_category_2">
+            <column name="id" value="003001"/>
+            <column name="category" value="Cultural"/>
+            <column name="description" value="Cultural"/>
+            <column name="reward_category_1_id" value="003"/>
+        </insert>
+        <insert tableName="reward_category_2">
+            <column name="id" value="003002"/>
+            <column name="category" value="Honeymoon"/>
+            <column name="description" value="Honeymoon"/>
+            <column name="reward_category_1_id" value="003"/>
+        </insert>
+        <insert tableName="reward_category_2">
+            <column name="id" value="003003"/>
+            <column name="category" value="Wildlife&amp;Safari"/>
+            <column name="description" value="Wildlife&amp;Safari"/>
+            <column name="reward_category_1_id" value="003"/>
+        </insert>
+        <insert tableName="reward_category_2">
+            <column name="id" value="001001"/>
+            <column name="category" value="Investment"/>
+            <column name="description" value="Investment"/>
+            <column name="reward_category_1_id" value="001"/>
+        </insert>
+        <insert tableName="reward_category_2">
+            <column name="id" value="001002"/>
+            <column name="category" value="Loan"/>
+            <column name="description" value="Loan"/>
+            <column name="reward_category_1_id" value="001"/>
+        </insert>
+        <insert tableName="reward_category_2">
+            <column name="id" value="001003"/>
+            <column name="category" value="Insurance"/>
+            <column name="description" value="Insurance"/>
+            <column name="reward_category_1_id" value="001"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
